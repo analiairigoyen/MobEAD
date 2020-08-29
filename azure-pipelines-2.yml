@@ -25,6 +25,17 @@ steps:
     #workingDirectory: # Optional
     #failOnStderr: false # Optional
 
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SONAR Analia'
+    organization: 'promove'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'Analia_eShopOnWeb'
+    cliProjectName: Analia_eShopOnWeb
+    cliSources: '$(System.DefaultWorkingDirectory)'
+  continueOnError: true
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -44,7 +55,16 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     testAssemblyVer2: '$(Build.SourcesDirectory)/test**.js'
+    
  
+- task: SonarCloudAnalyze@1
+  displayName: 'Run Code Analysis'
+  continueOnError: true
+
+- task: SonarCloudPublish@1
+  displayName: 'Publish Quality Gate Result'
+  continueOnError: true
+  
 - task: CopyFiles@2
   inputs:
     contents: '**/*.*'
