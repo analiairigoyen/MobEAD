@@ -32,8 +32,8 @@ steps:
     organization: 'promove'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'Analia_eShopOnWeb'
-    cliProjectName: Analia_eShopOnWeb
+    cliProjectKey: 'analia'
+    cliProjectName: Analia
     cliSources: '$(System.DefaultWorkingDirectory)'
   continueOnError: true
 - task: NuGetToolInstaller@1
