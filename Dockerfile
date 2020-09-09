@@ -1,3 +1,5 @@
 FROM microsoft/aspnetcore:1.0.16-jessie
-COPY . /inetpub/wwwroot  
+WORKDIR /app
+COPY . .
+ENTRYPOINT ["dotnet", "myapp.dll"]  
 EXPOSE 8000
