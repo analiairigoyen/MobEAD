@@ -1,4 +1,4 @@
-FROM microsoft/aspnet
+FROM microsoft/aspnetcore
 COPY ./ .
 
 EXPOSE 80
