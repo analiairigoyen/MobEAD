@@ -1,5 +1,4 @@
-FROM microsoft/aspnetcore:1.0.16-jessie
+FROM microsoft/aspnetcore:2.0
 WORKDIR /app
 COPY . .
-ENTRYPOINT ["dotnet", "myapp.dll"]  
-EXPOSE 8000
+ENTRYPOINT ["dotnet", "WebApplication6.dll"]
