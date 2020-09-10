@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
-WORKDIR /app
+WORKDIR /
 
 # copy csproj and restore as distinct layers
 COPY *.sln .
