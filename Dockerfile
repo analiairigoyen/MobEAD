@@ -1,5 +1,4 @@
-FROM microsoft/aspnet:2.0
-WORKDIR ./
+FROM microsoft/aspnet
 COPY ./ .
 
 EXPOSE 80
