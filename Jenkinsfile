@@ -21,9 +21,9 @@ pipeline {
         }
         stage('Delivery image') {
             steps{
-                script {
-                  dockerImage.push("$BUILD_NUMBER")
-                }
+              docker.withRegistry('https://registry-1.docker.io/v2/', 'dockerhub') {
+                dockerImage.push("$BUILD_NUMBER")
+              }
             }
         }
     } 
