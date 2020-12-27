@@ -12,7 +12,7 @@ pipeline {  environment {
             }
         }
     
-        stage('Building and Publish image') {
+        stage('Build image') {
             steps{
                 script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
@@ -20,7 +20,7 @@ pipeline {  environment {
             }
         }
 
-        stage('Building and Publish image') {
+        stage('Delivery image') {
             steps{
                 sh 'docker push $dockerImage'
             }
