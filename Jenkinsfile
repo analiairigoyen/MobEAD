@@ -1,10 +1,10 @@
-pipeline {  environment {
-    registry = "osanamgcj/mobead_image_build"
-    registryCredential = 'docker'
-    dockerImage = ''
-  }
+pipeline {  
+    environment {
+      registry = "osanamgcj/mobead_image_build"
+      registryCredential = 'docker'
+      dockerImage = ''
+    }
     agent any 
-
     stages { 
         stage('Lint Dockerfile'){ 
             steps{
@@ -12,7 +12,6 @@ pipeline {  environment {
                 sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
             }
         }
-    
         stage('Build image') {
             steps{
                 script {
@@ -20,10 +19,11 @@ pipeline {  environment {
                 }
             }
         }
-
         stage('Delivery image') {
             steps{
-                dockerImage.push("$BUILD_NUMBER")
+                script {
+                  dockerImage.push("$BUILD_NUMBER")
+                }
             }
         }
     } 
