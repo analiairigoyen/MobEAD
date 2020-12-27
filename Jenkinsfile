@@ -16,7 +16,7 @@ pipeline {  environment {
             steps{
                 script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                    dockerImage.push()
+                    docker.dockerImage.push()
                 }
             }
         }
