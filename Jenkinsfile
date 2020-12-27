@@ -22,7 +22,7 @@ pipeline {  environment {
 
         stage('Delivery image') {
             steps{
-                sh 'docker push $dockerImage'
+                sh 'docker push ${dockerImage}'
             }
         }
     } 
