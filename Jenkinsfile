@@ -14,17 +14,11 @@ pipeline {  environment {
     
         stage('Building and Publish image') {
             steps{
-                node {
-                    def customImage = docker.build registry + ":$BUILD_NUMBER"
+                script {
+                    customImage = docker.build registry + ":$BUILD_NUMBER"
                     customImage.push()
                 }
             }
         }
-
-        stage('Publish Docker Image'){ 
-            steps{
-                sh 'docker push $IMAGE:$TAG'
-            }
-        } 
     } 
 }
