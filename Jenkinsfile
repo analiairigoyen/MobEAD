@@ -22,7 +22,7 @@ pipeline {  environment {
 
         stage('Publish Docker Image'){ 
             steps{
-                sh 'docker push $(IMAGE):$(TAG)'
+                sh 'docker push $IMAGE:$TAG'
             }
         } 
     } 
