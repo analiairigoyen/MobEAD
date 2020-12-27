@@ -16,7 +16,7 @@ pipeline {  environment {
             steps{
                 script {
                     customImage = docker.build registry + ":$BUILD_NUMBER"
-                    customImage.push()
+                    customImage.docker.push()
                 }
             }
         }
