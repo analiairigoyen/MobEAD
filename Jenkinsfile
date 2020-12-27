@@ -20,9 +20,9 @@ pipeline {  environment {
             }
         }
 
-        stage('Build and Publish Docker Image'){ 
+        stage('Publish Docker Image'){ 
             steps{
-                echo "Pipeline Usando Jenkinsfile"
+                sh 'docker push $(IMAGE):$(TAG)'
             }
         } 
     } 
