@@ -1,6 +1,7 @@
 pipeline {  environment {
     registry = "osanamgcj/mobead_image_build"
     registryCredential = 'docker'
+    dockerImage = "${image}"
   }
     agent any 
 
@@ -15,8 +16,8 @@ pipeline {  environment {
         stage('Building and Publish image') {
             steps{
                 script {
-                    customImage = docker.build registry + ":$BUILD_NUMBER"
-                    customImage.docker.push()
+                    docker.build registry + ":$BUILD_NUMBER"
+                    docker push dockerImage + ":$BUILD_NUMBER"
                 }
             }
         }
