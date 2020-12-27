@@ -1,7 +1,7 @@
 pipeline {  
     environment {
       registry = "osanamgcj/mobead_image_build"
-      registryCredential = 'docker'
+      registryCredential = 'Docker'
       dockerImage = ''
     }
     agent any 
