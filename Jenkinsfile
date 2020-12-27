@@ -7,7 +7,7 @@ pipeline {  environment {
     stages { 
         stage('Lint Dockerfile'){ 
             steps{
-                echo "Pipeline Usando arquivos Jenkinsfile"
+                echo "Pipeline Usando Jenkinsfile"
                 sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
             }
         }
@@ -19,6 +19,7 @@ pipeline {  environment {
                 }
             }
         }
+
         stage('Build and Publish Docker Image'){ 
             steps{
                 echo "Pipeline Usando Jenkinsfile"
